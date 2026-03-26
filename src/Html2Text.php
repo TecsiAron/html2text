@@ -106,7 +106,12 @@ class Html2Text
     private static function getDocument(string $html, Config $config): DOMDocument
     {
         $document = new DOMDocument();
-
+        if($config->ignoreErrors)
+        {
+            $document->strictErrorChecking = false;
+            $document->recover = true;
+            $document->xmlStandalone = true;
+        }
         $html = trim($html);
 
         if (! $html) {
@@ -131,8 +136,13 @@ class Html2Text
         };
 
         $header = sprintf('<?xml version="%s" encoding="%s">', $document->xmlVersion ?? '1.0', $characterSet);
-
+        if($config->ignoreErrors) {
+            $old_internal_errors = libxml_use_internal_errors(true);
+        }
         $load_result = $document->loadHTML($header . $html);
+        if($config->ignoreErrors) {
+            libxml_use_internal_errors($old_internal_errors);
+        }
 
         if (! $load_result) {
             throw new Html2TextException('Could not load HTML - badly formed?', $html);
