@@ -1,5 +1,5 @@
 {
-    "name": "worksome/html2text",
+    "name": "edituraedu/html2text",
     "description": "A PHP script to convert HTML into a plain text format",
     "type": "library",
     "license": "MIT",
