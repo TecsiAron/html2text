@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Worksome\Html2Text\Config;
-use Worksome\Html2Text\Html2Text;
+use EdituraEDU\Html2Text\Config;
+use EdituraEDU\Html2Text\Html2Text;
 
 it('parses', function (string $testFile, Config $config = new Config()) {
     expect(file_exists(__DIR__ . "/fixtures/{$testFile}.html"))->toBeTrue();

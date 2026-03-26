@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Worksome\\Html2Text\\": "src/"
+            "EdituraEDU\\Html2Text\\": "src/"
         }
     },
     "require": {

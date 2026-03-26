@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Worksome\Html2Text;
+namespace EdituraEDU\Html2Text;
 
 readonly class Config
 {
